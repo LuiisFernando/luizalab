@@ -1,0 +1,26 @@
+
+
+agm-map {
+  height: 50vh;
+}
+
+.form-control {
+  width: 200px;
+  display: initial;
+}
+
+.mapa {
+  border: 1
+}
+
+.divEndereco {
+  text-align: left;
+}
+.divFechar {
+  text-align: right;
+}
+
+a {
+  text-decoration: none !important;
+  cursor: pointer;
+}

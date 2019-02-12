@@ -1,0 +1,47 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div class="container">
+
+  <div class="jumbotron">
+    <h1>Consulta de endereço</h1>
+    <div class="row" style="display: flex; flex-direction: row">
+    <div class="col-md-5">
+        <form [formGroup]="formulario" (ngSubmit)="buscarEndereco()">
+            <input type="text" class="form-control" [textMask]="{mask: cepMask}" formControlName="localizacao" placeholder="Digite seu CEP">
+            <button type="submit" [disabled]="!formulario.valid" class="btn btn-info">Buscar</button>
+        </form>
+    </div>
+    </div>
+  </div>
+
+  <div class="mapa">
+      <div class="row" *ngIf="endereco">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="divFechar">
+              <a (click)="fecharMapa()">X</a>
+            </div>
+            <div class="divEndereco">
+              <h3>{{endereco?.logradouro}}</h3>
+              <p>{{endereco?.bairro}}</p>
+              <p>{{endereco?.localidade}} - {{endereco?.uf}}</p>
+              <p>{{endereco?.cep}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <agm-map [latitude]="lat" [longitude]="long" [zoom]="18">
+                  <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+                </agm-map>
+            </div>
+        </div>
+      </div>
+  </div>
+
+</div>
+
+
+
+
+
